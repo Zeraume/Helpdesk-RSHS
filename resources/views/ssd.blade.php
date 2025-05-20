@@ -10,47 +10,7 @@
     <link rel="stylesheet" href="{{ asset('assets\css\style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets\css\stylePasien.css') }}">
     <style>
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 20px;
-        }
 
-        .back-btn i {
-            font-size: 1.2rem;
-        }
-
-        .ssd-container {
-            max-width: 1300px;
-            margin: 80px auto;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 12px;
-            border: none;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-        }
-
-        .ssd-title {
-            color: #267B84;
-            font-weight: bold;
-        }
-
-        .accordion-button:not(.collapsed) {
-            color: #000;
-            background-color: #f0f0f0;
-        }
-
-        .accordion-button:focus {
-            box-shadow: none;
-            outline: none;
-        }
-
-        .accordion-button:not(.collapsed) {
-            color: #267B84;
-            font-weight: bold;
-            background-color: white;
-        }
     </style>
 </head>
 

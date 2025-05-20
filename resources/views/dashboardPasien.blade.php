@@ -15,16 +15,7 @@
 
 <body>
     <!-- Navbar -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
-        <div class="container-lg d-flex justify-content-between align-items-center">
-            <!-- Logo -->
-            <a class="navbar-brand" href="dashboardPasien.html">
-                <img src="images/logoRSHS.png" alt="Logo" height="40" />
-            </a>
-        </div>
-    </nav>
+    <div class="sticky-top" id="navbar-pasien"></div>
 
     <!-- Hiasan Sudut -->
     <img src="images/Hiasan Layar 2.png" class="hiasan top-left" />
