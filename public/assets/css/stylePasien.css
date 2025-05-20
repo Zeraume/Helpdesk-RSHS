@@ -1,0 +1,93 @@
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+.hiasan {
+    position: fixed;
+    width: 100px;
+    z-index: -1;
+}
+
+.top-left {
+    top: 1;
+    left: 0;
+    transform: rotate(0deg);
+}
+
+.top-right {
+    top: 1;
+    right: 0;
+    transform: rotate(90deg);
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: rotate(-90deg);
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+.judul {
+    margin-top: 12vh;
+}
+
+.circle-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    margin: 0 auto;
+}
+
+.card h5 {
+    margin-top: 10px;
+}
+
+.card a.btn {
+    bottom: 10px;
+    width: 100%;
+}
+
+.card {
+    min-height: 400px;
+    max-height: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    border: none;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+@media (max-width: 985px) {
+    .text-1 {
+        font-size: 18px;
+    }
+
+    .text-2 {
+        font-size: 14px;
+    }
+
+    .text-3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 860px) {
+    .faq-container {
+        margin-left: 32px !important;
+        margin-right: 32px !important;
+    }
+}
