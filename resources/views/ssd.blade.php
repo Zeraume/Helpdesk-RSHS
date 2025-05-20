@@ -19,10 +19,10 @@
     <div class="sticky-top" id="navbar-pasien"></div>
 
     <!-- Hiasan Sudut -->
-    <img src="images/Hiasan Layar 2.png" class="hiasan top-left" />
-    <img src="images/Hiasan Layar 2.png" class="hiasan top-right" />
-    <img src="images/Hiasan Layar 2.png" class="hiasan bottom-left" />
-    <img src="images/Hiasan Layar 2.png" class="hiasan bottom-right" />
+    <img src="images/Hiasan Layar.png" class="hiasan top-left" />
+    <img src="images/Hiasan Layar.png" class="hiasan top-right" />
+    <img src="images/Hiasan Layar.png" class="hiasan bottom-left" />
+    <img src="images/Hiasan Layar.png" class="hiasan bottom-right" />
 
     <div class="ssd-container">
         <!-- Tombol Kembali -->

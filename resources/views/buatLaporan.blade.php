@@ -10,45 +10,7 @@
     <link rel="stylesheet" href="{{ asset('assets\css\style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets\css\stylePasien.css') }}">
     <style>
-        .form-container {
-            max-width: 1300px;
-            margin: 80px auto;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-            position: relative;
-        }
 
-        .upload-box {
-            border: 2px dashed #ccc;
-            padding: 40px;
-            text-align: center;
-            color: #888;
-            border-radius: 10px;
-        }
-
-        .btn-primary-custom {
-            background-color: #00b5b8;
-            border: none;
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 20px;
-        }
-
-        .back-btn i {
-            font-size: 1.2rem;
-        }
-
-        @media (max-width: 660px) {
-            .form-container {
-                margin: 32px;
-            }
-        }
     </style>
 </head>
 
@@ -57,10 +19,10 @@
     <div class="sticky-top" id="navbar-pasien"></div>
 
     <!-- Hiasan Sudut -->
-    <img src="images/Hiasan Layar 2.png" class="hiasan top-left" />
-    <img src="images/Hiasan Layar 2.png" class="hiasan top-right" />
-    <img src="images/Hiasan Layar 2.png" class="hiasan bottom-left" />
-    <img src="images/Hiasan Layar 2.png" class="hiasan bottom-right" />
+    <img src="images/Hiasan Layar.png" class="hiasan top-left" />
+    <img src="images/Hiasan Layar.png" class="hiasan top-right" />
+    <img src="images/Hiasan Layar.png" class="hiasan bottom-left" />
+    <img src="images/Hiasan Layar.png" class="hiasan bottom-right" />
 
     <div class="form-container">
         <!-- Tombol Kembali -->
