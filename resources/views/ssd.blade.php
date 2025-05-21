@@ -16,17 +16,17 @@
 
 <body>
     <!-- Navbar -->
-    <div class="sticky-top" id="navbar-pasien"></div>
+    @include('navbarPasien')
 
     <!-- Hiasan Sudut -->
-    <img src="images/Hiasan Layar.png" class="hiasan top-left" />
-    <img src="images/Hiasan Layar.png" class="hiasan top-right" />
-    <img src="images/Hiasan Layar.png" class="hiasan bottom-left" />
-    <img src="images/Hiasan Layar.png" class="hiasan bottom-right" />
+    <img src="{{ asset('assets/images/Hiasan Layar.png') }}" class="hiasan top-left" />
+    <img src="{{ asset('assets/images/Hiasan Layar.png') }}" class="hiasan top-right" />
+    <img src="{{ asset('assets/images/Hiasan Layar.png') }}" class="hiasan bottom-left" />
+    <img src="{{ asset('assets/images/Hiasan Layar.png') }}" class="hiasan bottom-right" />
 
     <div class="ssd-container">
         <!-- Tombol Kembali -->
-        <a href="dashboardPasien.html" class="btn btn-outline-secondary back-btn">
+        <a href="{{ route('pasien.dashboard') }}" class="btn btn-outline-secondary back-btn">
             <i class="bi bi-arrow-left"></i> Kembali
         </a>
 
@@ -141,23 +141,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        fetch("navbarPasien.html")
-            .then((response) => response.text())
-            .then((data) => {
-                document.getElementById("navbar-pasien").innerHTML = data;
-
-                const currentPage = window.location.pathname.split("/").pop();
-                const navLinks = document.querySelectorAll(".nav-link");
-                navLinks.forEach((link) => {
-                    if (link.getAttribute("href") === currentPage) {
-                        link.classList.add("active");
-                    }
-                });
-            })
-            .catch((error) => console.error("Error loading the navbar:", error));
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>

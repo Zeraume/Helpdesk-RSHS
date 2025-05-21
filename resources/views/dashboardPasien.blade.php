@@ -15,13 +15,13 @@
 
 <body>
     <!-- Navbar -->
-    <div class="sticky-top" id="navbar-pasien"></div>
+    @include('navbarPasien')
 
     <!-- Hiasan Sudut -->
-    <img src="images/Hiasan Layar.png" class="hiasan top-left" />
-    <img src="images/Hiasan Layar.png" class="hiasan top-right" />
-    <img src="images/Hiasan Layar.png" class="hiasan bottom-left" />
-    <img src="images/Hiasan Layar.png" class="hiasan bottom-right" />
+    <img src="{{ asset('assets/images/Hiasan Layar.png') }}" class="hiasan top-left" />
+    <img src="{{ asset('assets/images/Hiasan Layar.png') }}" class="hiasan top-right" />
+    <img src="{{ asset('assets/images/Hiasan Layar.png') }}" class="hiasan bottom-left" />
+    <img src="{{ asset('assets/images/Hiasan Layar.png') }}" class="hiasan bottom-right" />
 
     <!-- Header -->
     <div class="text-center judul mb-5">
@@ -48,7 +48,7 @@
                             layanan RSHS Bandung.</p>
                     </div>
                     <div class="card-footer bg-transparent border-0 position-absolute bottom-0 start-0 w-100 p-4">
-                        <a href="buatLaporan.html" class="btn text-light w-100" style="background-color: #00B9AD;">Buat
+                        <a href="{{ route('pasien.buatLaporan') }}" class="btn text-light w-100" style="background-color: #00B9AD;">Buat
                             Laporan <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                             penanganan.</p>
                     </div>
                     <div class="card-footer bg-transparent border-0 position-absolute bottom-0 start-0 w-100 p-4">
-                        <a href="lacakTiket.html" class="btn text-light w-100" style="background-color: #60C0D0;">Lacak
+                        <a href="{{ route('pasien.lacakTiket') }}" class="btn text-light w-100" style="background-color: #60C0D0;">Lacak
                             Tiket <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -87,30 +87,13 @@
                             lainnya.</p>
                     </div>
                     <div class="card-footer bg-transparent border-0 position-absolute bottom-0 start-0 w-100 p-4">
-                        <a href="ssd.html" class="btn text-light w-100" style="background-color: #CDDC29;">Lihat SSD <i
+                        <a href="{{ route('pasien.ssd') }}" class="btn text-light w-100" style="background-color: #CDDC29;">Lihat SSD <i
                                 class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        fetch("navbarPasien.html")
-            .then((response) => response.text())
-            .then((data) => {
-                document.getElementById("navbar-pasien").innerHTML = data;
-
-                const currentPage = window.location.pathname.split("/").pop();
-                const navLinks = document.querySelectorAll(".nav-link");
-                navLinks.forEach((link) => {
-                    if (link.getAttribute("href") === currentPage) {
-                        link.classList.add("active");
-                    }
-                });
-            })
-            .catch((error) => console.error("Error loading the navbar:", error));
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
