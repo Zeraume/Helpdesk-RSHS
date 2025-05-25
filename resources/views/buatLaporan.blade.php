@@ -25,7 +25,8 @@
     <img src="{{ asset('assets/images/Hiasan Layar.png') }}" class="hiasan bottom-right" />
 
     <div class="form-container">
-        <a href="{{ route('pasien.dashboard') }}" class="btn btn-outline-secondary back-btn"> <i class="bi bi-arrow-left"></i> Kembali
+        <a href="{{ route('pasien.dashboard') }}" class="btn btn-outline-secondary back-btn"> <i
+                class="bi bi-arrow-left"></i> Kembali
         </a>
 
         <h3 class="text-center fw-bold" style="color: #267B84;">Form Pengaduan</h3>
@@ -65,7 +66,7 @@
 
             <div class="mb-4">
                 <label class="form-label fw-bold">Bukti Pendukung (Opsional)</label>
-                <input type="file" id="buktiPendukungFile" class="d-none" accept=".jpg, .jpeg, .png, .pdf">
+                <input type="file" id="buktiPendukungFile" class="d-none" accept=".jpg, .jpeg, .png, .pdf" multiple>
                 <label for="buktiPendukungFile" class="upload-box d-block" style="cursor: pointer;">
                     <div class="upload-box-content"> <i class="bi bi-cloud-arrow-up" style="font-size: 2rem;"></i>
                         <p class="mt-2 mb-0 upload-box-text">Klik untuk upload <span class="fw-light">atau drag and
@@ -85,157 +86,258 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-
-            // Fungsi validasi file universal
-            function validateFile(file, infoElementId, inputElement) {
+            // --- Fungsi validasi file universal (tetap sama) ---
+            function validateFile(file) {
                 const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
-                const prettyAllowedTypes = 'JPG, PNG, atau PDF';
                 const maxSize = 5 * 1024 * 1024; // 5MB
-                const infoEl = document.getElementById(infoElementId);
-
                 if (!allowedTypes.includes(file.type)) {
-                    infoEl.innerHTML = `<p class="text-danger">Format file tidak diizinkan. Harap unggah ${prettyAllowedTypes}.</p>`;
-                    if (inputElement) inputElement.value = '';
-                    return false;
+                    return { valid: false, message: `Tipe file tidak diizinkan untuk ${file.name}. Harap unggah JPG, PNG, atau PDF.` };
                 }
                 if (file.size > maxSize) {
-                    infoEl.innerHTML = `<p class="text-danger">Ukuran file terlalu besar. Maksimal 5MB.</p>`;
-                    if (inputElement) inputElement.value = '';
-                    return false;
+                    return { valid: false, message: `Ukuran file ${file.name} terlalu besar. Maksimal 5MB.` };
                 }
-                return true;
+                return { valid: true, message: '' };
             }
 
             // --- 1. Fungsionalitas untuk "Tambahkan Referensi Tiket Sebelumnya" ---
             const refTicketFileInput = document.getElementById('refTicketFile');
             const refTicketFileInfo = document.getElementById('refTicketFileInfo');
 
-            if (refTicketFileInput) {
+            if (!refTicketFileInput) {
+                console.error("DEBUG: Elemen input 'refTicketFile' TIDAK ditemukan!");
+            }
+            if (!refTicketFileInfo) {
+                console.error("DEBUG: Elemen div 'refTicketFileInfo' TIDAK ditemukan!");
+            }
+
+            if (refTicketFileInput && refTicketFileInfo) {
+                console.log("DEBUG: Listener untuk 'refTicketFile' sedang ditambahkan.");
                 refTicketFileInput.addEventListener('change', function (event) {
+                    console.log("DEBUG: Event 'change' pada 'refTicketFile' terpicu.");
+
                     const file = event.target.files[0];
                     refTicketFileInfo.innerHTML = '';
+
                     if (file) {
-                        if (validateFile(file, 'refTicketFileInfo', refTicketFileInput)) {
+                        console.log("DEBUG: File dipilih untuk referensi:", file.name, file.size, file.type);
+                        const validationResult = validateFile(file);
+                        console.log("DEBUG: Hasil validasi referensi:", validationResult);
+
+                        if (validationResult.valid) {
                             refTicketFileInfo.innerHTML = `File terpilih: <strong>${file.name}</strong> (${(file.size / 1024).toFixed(1)} KB)`;
-                        }
-                    }
-                });
-            }
-
-            // --- 2. Fungsionalitas untuk "Bukti Pendukung" (Klik dan Drag & Drop) ---
-            const buktiPendukungFileInput = document.getElementById('buktiPendukungFile');
-            const buktiPendukungDropArea = document.querySelector('label[for="buktiPendukungFile"]');
-            const buktiPendukungFileInfo = document.getElementById('buktiPendukungFileInfo');
-            const uploadBoxContent = buktiPendukungDropArea ? buktiPendukungDropArea.querySelector('.upload-box-content') : null;
-            const originalUploadBoxHTML = uploadBoxContent ? uploadBoxContent.innerHTML : '';
-
-            function displayBuktiFileInfo(file) {
-                buktiPendukungFileInfo.innerHTML = '';
-
-                const fileInfoText = document.createElement('p');
-                fileInfoText.innerHTML = `File terpilih: <strong>${file.name}</strong> (${(file.size / (1024 * 1024)).toFixed(2)} MB)`;
-                buktiPendukungFileInfo.appendChild(fileInfoText);
-
-                if (file.type.startsWith('image/')) {
-                    const reader = new FileReader();
-                    reader.onload = function (e) {
-                        const imgPreview = document.createElement('img');
-                        imgPreview.src = e.target.result;
-                        imgPreview.alt = `Preview ${file.name}`;
-                        imgPreview.classList.add('img-thumbnail');
-                        buktiPendukungFileInfo.appendChild(imgPreview);
-                    }
-                    reader.readAsDataURL(file);
-                }
-                // Update teks di dalam drop area untuk menunjukkan file telah dipilih
-                if (uploadBoxContent) {
-                    uploadBoxContent.innerHTML = `<i class="bi bi-file-earmark-check" style="font-size: 2rem; color: green;"></i>
-                                          <p class="mt-2 mb-0">File: <strong>${file.name}</strong></p>
-                                          <small class="text-muted">Klik atau drag file lain untuk mengganti.</small>`;
-                }
-            }
-
-            function resetBuktiUploadUI() {
-                buktiPendukungFileInput.value = '';
-                buktiPendukungFileInfo.innerHTML = '';
-                if (uploadBoxContent) {
-                    uploadBoxContent.innerHTML = originalUploadBoxHTML;
-                }
-            }
-
-            if (buktiPendukungFileInput && buktiPendukungDropArea) {
-                // A. Handle pemilihan file dengan klik
-                buktiPendukungFileInput.addEventListener('change', function (event) {
-                    const file = event.target.files[0];
-                    buktiPendukungFileInfo.innerHTML = '';
-                    if (file) {
-                        if (validateFile(file, 'buktiPendukungFileInfo', buktiPendukungFileInput)) {
-                            displayBuktiFileInfo(file);
+                            console.log("DEBUG: Info file referensi ditampilkan.");
                         } else {
-                            resetBuktiUploadUI();
+                            refTicketFileInfo.innerHTML = `<p class="text-danger">${validationResult.message}</p>`;
+                            refTicketFileInput.value = '';
+                            console.warn("DEBUG: File referensi tidak valid:", validationResult.message);
                         }
+                    } else {
+                        console.log("DEBUG: Tidak ada file referensi yang dipilih (atau dibatalkan).");
                     }
                 });
+            }
 
-                // B. Handle Drag and Drop
-                function preventDefaults(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
+            // --- Fungsionalitas untuk "Bukti Pendukung" ---
+            const buktiPendukungFileInput = document.getElementById('buktiPendukungFile');
+            const buktiPendukungDropAreaLabel = document.querySelector('label[for="buktiPendukungFile"]');
+            const uploadBoxContent = buktiPendukungDropAreaLabel ? buktiPendukungDropAreaLabel.querySelector('.upload-box-content') : null;
+            const buktiErrorContainer = document.getElementById('buktiPendukungFileErrors');
+
+            let validBuktiPendukungFiles = [];
+
+            const originalUploadBoxHTML = `
+        <div class="initial-prompt text-center">
+            <i class="bi bi-cloud-arrow-up" style="font-size: 2.5rem;"></i>
+            <p class="mt-2 mb-0 upload-box-text">Klik untuk upload <span class="fw-light">atau drag and drop</span></p>
+            <small class="text-muted upload-box-hint">Format: JPG, PNG, atau PDF (Maks. 5MB). Boleh lebih dari satu file.</small>
+        </div>`;
+
+            function renderSelectedFilesUI() {
+                if (!uploadBoxContent) return;
+                uploadBoxContent.innerHTML = '';
+
+                if (validBuktiPendukungFiles.length === 0) {
+                    uploadBoxContent.innerHTML = originalUploadBoxHTML;
+                    buktiPendukungDropAreaLabel.classList.remove('has-files');
+                    uploadBoxContent.style.justifyContent = 'center';
+                    uploadBoxContent.style.alignItems = 'center';
+                } else {
+                    buktiPendukungDropAreaLabel.classList.add('has-files');
+                    uploadBoxContent.style.justifyContent = 'flex-start';
+                    uploadBoxContent.style.alignItems = 'stretch';
+
+                    const filesGridContainer = document.createElement('div');
+                    filesGridContainer.id = 'fileGridContainer';
+                    filesGridContainer.classList.add('d-flex', 'flex-wrap', 'justify-content-start', 'align-items-stretch', 'gap-2');
+
+                    validBuktiPendukungFiles.forEach((file, index) => {
+                        const fileBox = document.createElement('div');
+                        fileBox.classList.add('file-item-box');
+
+                        const previewSection = document.createElement('div');
+                        previewSection.classList.add('file-preview-section');
+                        if (file.type.startsWith('image/')) {
+                            const imgPreview = document.createElement('img');
+                            if (!file.previewSrc) {
+                                file.previewSrc = URL.createObjectURL(file);
+                            }
+                            imgPreview.src = file.previewSrc;
+                            imgPreview.alt = file.name;
+                            previewSection.appendChild(imgPreview);
+                        } else {
+                            const fileIconContainer = document.createElement('div');
+                            fileIconContainer.classList.add('file-icon', 'text-muted');
+                            let iconClass = 'bi-file-earmark-text';
+                            if (file.type === 'application/pdf') iconClass = 'bi-file-earmark-pdf text-danger';
+                            else if (file.type.startsWith('image/')) iconClass = 'bi-file-earmark-image text-info';
+                            fileIconContainer.innerHTML = `<i class="bi ${iconClass}"></i>`;
+                            previewSection.appendChild(fileIconContainer);
+                        }
+                        fileBox.appendChild(previewSection);
+
+                        // File Name & Size Section
+                        const nameAndSizeSection = document.createElement('div');
+                        nameAndSizeSection.classList.add('file-details-section');
+                        const fileName = document.createElement('div');
+                        fileName.classList.add('file-name');
+                        fileName.textContent = file.name;
+                        fileName.title = file.name;
+                        nameAndSizeSection.appendChild(fileName);
+                        const fileSize = document.createElement('div');
+                        fileSize.classList.add('file-size', 'text-muted');
+                        fileSize.textContent = `(${(file.size / (1024 * 1024)).toFixed(2)} MB)`;
+                        nameAndSizeSection.appendChild(fileSize);
+                        fileBox.appendChild(nameAndSizeSection);
+
+                        // Remove Button Section
+                        const removeButtonSection = document.createElement('div');
+                        removeButtonSection.classList.add('file-remove-section');
+                        const removeBtn = document.createElement('button');
+                        removeBtn.type = 'button';
+                        removeBtn.classList.add('btn', 'btn-danger', 'btn-remove-file');
+                        removeBtn.innerHTML = '<i class="bi bi-trash text-white"></i> Hapus';
+                        removeBtn.setAttribute('aria-label', `Hapus file ${file.name}`);
+                        removeBtn.onclick = function (event) {
+                            event.stopPropagation();
+                            event.preventDefault();
+                            removeFile(index);
+                        };
+                        removeButtonSection.appendChild(removeBtn);
+                        fileBox.appendChild(removeButtonSection);
+
+                        filesGridContainer.appendChild(fileBox);
+                    });
+                    uploadBoxContent.appendChild(filesGridContainer);
+
+                    // Prompt untuk menambah file lagi
+                    const addMorePrompt = document.createElement('div');
+                    addMorePrompt.classList.add('add-more-prompt', 'text-center', 'mt-auto', 'pt-3');
+                    addMorePrompt.innerHTML = `
+                <div class="initial-prompt">
+                    <i class="bi bi-plus-circle-dotted"></i>
+                    <p class="mt-1 mb-0 small">Klik area ini atau drag & drop untuk menambah file lain</p>
+                </div>`;
+                    uploadBoxContent.appendChild(addMorePrompt);
+                }
+                if (buktiPendukungFileInput) buktiPendukungFileInput.value = '';
+            }
+
+            function removeFile(indexToRemove) {
+                if (indexToRemove < 0 || indexToRemove >= validBuktiPendukungFiles.length) return;
+                const fileToRemove = validBuktiPendukungFiles[indexToRemove];
+                if (fileToRemove.previewSrc) {
+                    URL.revokeObjectURL(fileToRemove.previewSrc);
+                }
+                validBuktiPendukungFiles.splice(indexToRemove, 1);
+                renderSelectedFilesUI();
+                if (buktiErrorContainer) buktiErrorContainer.innerHTML = '';
+            }
+
+            function processNewFiles(newlySelectedFiles) {
+                if (buktiErrorContainer) buktiErrorContainer.innerHTML = '';
+                let filesActuallyAdded = 0;
+
+                for (const file of newlySelectedFiles) {
+                    const validationResult = validateFile(file);
+                    if (validationResult.valid) {
+                        const isDuplicate = validBuktiPendukungFiles.some(
+                            existingFile => existingFile.name === file.name &&
+                                existingFile.size === file.size &&
+                                existingFile.lastModified === file.lastModified
+                        );
+                        if (!isDuplicate) {
+                            validBuktiPendukungFiles.push(file);
+                            filesActuallyAdded++;
+                        } else {
+                            if (buktiErrorContainer) buktiErrorContainer.innerHTML += `<p class="mb-1">File ${file.name} sudah ada dalam daftar.</p>`;
+                        }
+                    } else {
+                        if (buktiErrorContainer) buktiErrorContainer.innerHTML += `<p class="mb-1">${validationResult.message}</p>`;
+                    }
                 }
 
+                if (filesActuallyAdded > 0) {
+                    renderSelectedFilesUI();
+                } else if (newlySelectedFiles.length > 0 && validBuktiPendukungFiles.length === 0) {
+                    renderSelectedFilesUI();
+                }
+                if (buktiPendukungFileInput) buktiPendukungFileInput.value = '';
+            }
+
+            if (buktiPendukungFileInput && buktiPendukungDropAreaLabel && uploadBoxContent) {
+                renderSelectedFilesUI();
+
+                buktiPendukungFileInput.addEventListener('change', function (event) {
+                    processNewFiles(event.target.files);
+                });
+
+                function preventDefaults(e) { e.preventDefault(); e.stopPropagation(); }
                 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                    buktiPendukungDropArea.addEventListener(eventName, preventDefaults, false);
+                    buktiPendukungDropAreaLabel.addEventListener(eventName, preventDefaults, false);
                     document.body.addEventListener(eventName, preventDefaults, false);
                 });
-
                 ['dragenter', 'dragover'].forEach(eventName => {
-                    buktiPendukungDropArea.addEventListener(eventName, () => {
-                        buktiPendukungDropArea.classList.add('highlight');
-                    }, false);
+                    buktiPendukungDropAreaLabel.addEventListener(eventName, () => buktiPendukungDropAreaLabel.classList.add('highlight'), false);
                 });
-
                 ['dragleave', 'drop'].forEach(eventName => {
-                    buktiPendukungDropArea.addEventListener(eventName, () => {
-                        buktiPendukungDropArea.classList.remove('highlight');
-                    }, false);
+                    buktiPendukungDropAreaLabel.addEventListener(eventName, () => buktiPendukungDropAreaLabel.classList.remove('highlight'), false);
                 });
-
-                buktiPendukungDropArea.addEventListener('drop', function (event) {
+                buktiPendukungDropAreaLabel.addEventListener('drop', function (event) {
                     const dt = event.dataTransfer;
-                    const files = dt.files;
-
-                    if (files.length > 0) {
-                        const file = files[0];
-                        buktiPendukungFileInput.files = files;
-                        buktiPendukungFileInfo.innerHTML = '';
-
-                        if (validateFile(file, 'buktiPendukungFileInfo', buktiPendukungFileInput)) {
-                            displayBuktiFileInfo(file);
-                        } else {
-                            resetBuktiUploadUI();
-                        }
-                    }
+                    processNewFiles(dt.files);
                 }, false);
             }
 
-            // Handle form submission
+            // Handle form submission (tetap sama, menggunakan validBuktiPendukungFiles)
             const formPengaduan = document.getElementById('formPengaduan');
             if (formPengaduan) {
                 formPengaduan.addEventListener('submit', function (event) {
                     event.preventDefault();
                     const formData = new FormData(formPengaduan);
+
+                    formData.delete(buktiPendukungFileInput.name);
+
                     if (refTicketFileInput.files.length > 0) {
-                        formData.append('referensi_tiket', refTicketFileInput.files[0]);
+                        const refFile = refTicketFileInput.files[0];
+                        const refValidation = validateFile(refFile);
+                        if (refValidation.valid) {
+                            formData.append('referensi_tiket', refFile);
+                        } else {
+                            alert(`File referensi tiket tidak valid: ${refValidation.message}`);
+                        }
                     }
-                    if (buktiPendukungFileInput.files.length > 0) {
-                        formData.append('bukti_pendukung', buktiPendukungFileInput.files[0]);
-                    }
+                    validBuktiPendukungFiles.forEach((file, index) => {
+                        formData.append('bukti_pendukung[]', file, file.name);
+                    });
 
-                    // Untuk melihat isi FormData
+                    console.log('Data yang akan dikirim:');
                     for (let [key, value] of formData.entries()) {
-                        console.log(key, value);
+                        if (value instanceof File) {
+                            console.log(key, value.name, value.type, value.size);
+                        } else {
+                            console.log(key, value);
+                        }
                     }
-
                     alert('Laporan akan dikirim (simulasi). Cek console untuk data FormData.');
                 });
             }
