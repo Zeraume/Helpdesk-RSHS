@@ -29,7 +29,7 @@
 
     <div class="text-center judul my-5 pt-5">
         <h3 class="fw-bold">Layanan Pengaduan Pasien RSHS Bandung</h3>
-        <p>Kami berkomitmen untuk memberikan pelayanan terbaik. Sampaikan laporan Anda untuk
+        <p style="color: black;">Kami berkomitmen untuk memberikan pelayanan terbaik. Sampaikan laporan Anda untuk
             membantu kami meningkatkan kualitas layanan.</p>
     </div>
 
