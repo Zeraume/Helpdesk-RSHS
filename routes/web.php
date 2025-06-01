@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\HumasController;
+use App\Http\Controllers\UnitKerjaController;
 
 Route::get('/', fn() => redirect()->route('humas.daftarPelaporan'));
 
@@ -29,7 +30,10 @@ Route::prefix('humas')->name('humas.')->group(function () {
 });
 
 Route::get('/internal-api/get-humas-navbar', function () {
-    // Ensure this view path is correct and does not contain layout sections
-    // if it's meant to be a partial.
     return view('Humas.navbarHumas')->render();
 })->name('internal.humasNavbar');
+
+Route::prefix('unit-kerja')->name('unit-kerja.')->group(function () {
+    Route::get('/dashboard-unit-kerja', [UnitKerjaController::class, 'berandaUnitKerja'])->name('berandaUnitKerja');
+    Route::get('/navbar-content', [UnitKerjaController::class, 'navbar'])->name('navbarContent');
+});
