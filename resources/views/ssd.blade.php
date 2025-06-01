@@ -168,16 +168,16 @@
                         Jika Anda merasa penyelesaian yang diberikan belum sesuai harapan, kami menyediakan informasi
                         mengenai cara mengajukan keluhan lanjutan.
                     </p>
-                    <div class="accordion" id="accordionGroupLainnya">
+                    <div class="accordion" id="accordionGroupTindakLanjut">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingTindakLanjutSatu">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseLainnyaSatu">
+                                    data-bs-target="#collapseTindakLanjutSatu">
                                     Apakah saya bisa mengubah laporan yang sudah dikirim?
                                 </button>
                             </h2>
-                            <div id="collapseLainnyaSatu" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionGroupLainnya">
+                            <div id="collapseTindakLanjutSatu" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionGroupTindakLanjutSatu">
                                 <div class="accordion-body">
                                     Anda dapat menghubungi admin atau membuka kembali tiket untuk melakukan perubahan
                                     jika laporan belum diproses lebih lanjut oleh tim terkait.
@@ -187,12 +187,12 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingTindakLanjutDua">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseLainnyaDua">
+                                    data-bs-target="#collapseTindakLanjutDua">
                                     Bagaimana jika saya belum puas dengan penyelesaian masalah?
                                 </button>
                             </h2>
-                            <div id="collapseLainnyaDua" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionGroupLainnya">
+                            <div id="collapseTindakLanjutDua" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionGroupTindakLanjutDua">
                                 <div class="accordion-body">
                                     Ya, semua data Anda akan disimpan dengan aman sesuai dengan kebijakan privasi kami
                                     dan hanya digunakan untuk keperluan penanganan laporan.
@@ -202,12 +202,12 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingTindakLanjutTiga">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseLainnyaTiga">
+                                    data-bs-target="#collapseTindakLanjutTiga">
                                     Bisakah saya menambahkan informasi tambahan setelah laporan dikirim?
                                 </button>
                             </h2>
-                            <div id="collapseLainnyaTiga" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionGroupLainnya">
+                            <div id="collapseTindakLanjutTiga" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionGroupTindakLanjutTiga">
                                 <div class="accordion-body">
                                     Ya, semua data Anda akan disimpan dengan aman sesuai dengan kebijakan privasi kami
                                     dan hanya digunakan untuk keperluan penanganan laporan.
@@ -226,16 +226,16 @@
                         Privasi dan keamanan data Anda adalah prioritas kami. Kategori ini menjelaskan bagaimana data
                         Anda disimpan dan dilindungi saat menggunakan layanan helpdesk.
                     </p>
-                    <div class="accordion" id="accordionGroupLainnya">
+                    <div class="accordion" id="accordionGroupKeamananSatu">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingKeamananSatu">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseLainnyaSatu">
+                                    data-bs-target="#collapseKeamananSatu">
                                     Apakah data saya akan aman?
                                 </button>
                             </h2>
-                            <div id="collapseLainnyaSatu" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionGroupLainnya">
+                            <div id="collapseKeamananSatu" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionGroupKeamananDua">
                                 <div class="accordion-body">
                                     Anda dapat menghubungi admin atau membuka kembali tiket untuk melakukan perubahan
                                     jika laporan belum diproses lebih lanjut oleh tim terkait.
@@ -245,12 +245,12 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingKeamananDua">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseLainnyaDua">
+                                    data-bs-target="#collapseKeamananDua">
                                     Siapa saja yang bisa melihat laporan saya?
                                 </button>
                             </h2>
-                            <div id="collapseLainnyaDua" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionGroupLainnya">
+                            <div id="collapseKeamananDua" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionGroupKeamananDua">
                                 <div class="accordion-body">
                                     Ya, semua data Anda akan disimpan dengan aman sesuai dengan kebijakan privasi kami
                                     dan hanya digunakan untuk keperluan penanganan laporan.
@@ -260,12 +260,12 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingKeamananTiga">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseLainnyaTiga">
+                                    data-bs-target="#collapseKeamananTiga">
                                     Apakah laporan saya bisa dibuat anonim?
                                 </button>
                             </h2>
-                            <div id="collapseLainnyaTiga" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionGroupLainnya">
+                            <div id="collapseKeamananTiga" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionGroupKeamananTiga">
                                 <div class="accordion-body">
                                     Ya, semua data Anda akan disimpan dengan aman sesuai dengan kebijakan privasi kami
                                     dan hanya digunakan untuk keperluan penanganan laporan.
