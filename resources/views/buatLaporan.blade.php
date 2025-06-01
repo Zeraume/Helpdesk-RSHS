@@ -420,8 +420,8 @@
                 let customMessage = 'Format nomor telepon tidak valid.';
                 if (value.length < 2 || !value.startsWith('08')) {
                     customMessage = 'Nomor telepon harus diawali dengan "08".';
-                } else if (value.length < 10) {
-                    customMessage = 'Nomor telepon terlalu pendek (minimal 10 digit).';
+                } else if (value.length < 9) {
+                    customMessage = 'Nomor telepon terlalu pendek (minimal 9 digit).';
                 } else if (value.length > 15) {
                     customMessage = 'Nomor telepon terlalu panjang (maksimal 15 digit).';
                 } else if (/\D/.test(value)) {
