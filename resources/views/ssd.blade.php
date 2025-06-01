@@ -50,8 +50,7 @@
                                     Bagaimana cara melacak status laporan saya?
                                 </button>
                             </h2>
-                            <div id="collapsePelacakanSatu" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionGroupPelacakan">
+                            <div id="collapsePelacakanSatu" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     Anda dapat melacak status laporan dengan memasukkan nomor tiket yang Anda terima
                                     setelah
@@ -62,12 +61,11 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingPelacakanDua">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapsePelacakanDua">
+                                    data-bs-target="#collapsePelacakanDua" aria-expanded="false">
                                     Apa arti dari setiap status laporan?
                                 </button>
                             </h2>
-                            <div id="collapsePelacakanDua" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionGroupPelacakan">
+                            <div id="collapsePelacakanDua" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     Setiap status laporan memiliki arti spesifik, seperti 'Diajukan' (laporan baru
                                     diterima), 'Diproses' (sedang ditangani), 'Selesai' (tindakan telah selesai), atau
@@ -79,12 +77,11 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingPelacakanTiga">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapsePelacakanTiga">
+                                    data-bs-target="#collapsePelacakanTiga" aria-expanded="false">
                                     Apakah saya akan mendapat notifikasi saat status laporan berubah?
                                 </button>
                             </h2>
-                            <div id="collapsePelacakanTiga" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionGroupPelacakan">
+                            <div id="collapsePelacakanTiga" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     Ya, sistem kami akan mengirimkan notifikasi (biasanya melalui email atau SMS jika
                                     nomor Anda terdaftar) setiap kali ada pembaruan signifikan pada status laporan Anda.
@@ -109,12 +106,11 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingProsesSatu">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseProsesSatu">
+                                    data-bs-target="#collapseProsesSatu" aria-expanded="false">
                                     Berapa lama waktu yang dibutuhkan untuk menindaklanjuti laporan?
                                 </button>
                             </h2>
-                            <div id="collapseProsesSatu" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionGroupProses">
+                            <div id="collapseProsesSatu" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     Proses tindak lanjut biasanya dilakukan dalam 1-3 hari kerja tergantung tingkat
                                     prioritas dan kompleksitas laporan. Untuk kasus yang memerlukan investigasi lebih
@@ -125,12 +121,11 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingProsesDua">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseProsesDua">
+                                    data-bs-target="#collapseProsesDua" aria-expanded="false">
                                     Berapa lama waktu yang diberikan untuk mengkonfirmasi penyelesaian tiket?
                                 </button>
                             </h2>
-                            <div id="collapseProsesDua" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionGroupProses">
+                            <div id="collapseProsesDua" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     Anda memiliki waktu maksimal 3 (tiga) hari kerja setelah laporan dinyatakan
                                     'Selesai' oleh tim kami untuk memberikan konfirmasi apakah Anda puas dengan
@@ -141,12 +136,11 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingProsesTiga">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseProsesTiga">
+                                    data-bs-target="#collapseProsesTiga" aria-expanded="false">
                                     Apakah ada prioritas khusus untuk jenis laporan tertentu?
                                 </button>
                             </h2>
-                            <div id="collapseProsesTiga" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionGroupProses">
+                            <div id="collapseProsesTiga" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     Ya, laporan yang bersifat darurat atau menyangkut keselamatan pasien akan
                                     mendapatkan prioritas penanganan lebih tinggi. Namun, kami berusaha menangani semua
