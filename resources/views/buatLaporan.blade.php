@@ -91,7 +91,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // --- Fungsi validasi file universal (tetap sama) ---
+            // --- Fungsi validasi file universal ---
             function validateFile(file) {
                 const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
                 const maxSize = 5 * 1024 * 1024; // 5MB
@@ -313,7 +313,7 @@
                 }, false);
             }
 
-            // Handle form submission (tetap sama, menggunakan validBuktiPendukungFiles)
+            // Handle form submission
             const formPengaduan = document.getElementById('formPengaduan');
             if (formPengaduan) {
                 formPengaduan.addEventListener('submit', function (event) {
@@ -369,12 +369,12 @@
                     if (phoneErrorDiv) phoneErrorDiv.textContent = '';
                 });
 
-                // 2. Validasi saat pengguna meninggalkan field (blur)
+                // 2. Validasi saat pengguna meninggalkan field
                 phoneInput.addEventListener('blur', function () {
                     validatePhoneNumberField(phoneInput, phoneErrorDiv);
                 });
 
-                // 3. Validasi saat form di-submit (jika input ini ada di dalam form)
+                // 3. Validasi saat form di-submit
                 const form = phoneInput.closest('form');
                 if (form) {
                     form.addEventListener('submit', function (event) {
@@ -398,7 +398,7 @@
             // Pola: diawali "08", diikuti 8 sampai 13 digit angka (total 10-15 digit)
             const pattern = /^08\d{8,13}$/;
 
-            // Jika field required dan kosong (biarkan validasi HTML5 bawaan yang menanganinya lebih dulu)
+            // Jika field required dan kosong
             if (inputElement.required && value === '') {
                 if (!inputElement.checkValidity()) {
                     inputElement.classList.add('is-invalid');
