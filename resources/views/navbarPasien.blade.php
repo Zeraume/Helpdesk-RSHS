@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="{{ asset('assets\css\style.css') }}">
 
 <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
     <div class="container-lg d-flex justify-content-between align-items-center">

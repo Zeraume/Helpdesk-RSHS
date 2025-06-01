@@ -9,8 +9,6 @@ class PasienController extends Controller
     // Tampilkan dashboard pasien
     public function dashboard()
     {
-        // misal: ambil data dari model, lalu passing ke view
-        // $laporan = Laporan::latest()->get();
         return view('dashboardPasien');
     }
 

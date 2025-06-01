@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\HumasController;
 
-Route::get('/', fn() => redirect()->route('pasien.dashboard'));
+Route::get('/', fn() => redirect()->route('humas.daftarPelaporan'));
 
 Route::get('/dashboard-pasien', [PasienController::class, 'dashboard'])
      ->name('pasien.dashboard');
@@ -17,3 +18,18 @@ Route::get('/lacak-tiket', [PasienController::class, 'lacakTiket'])
 Route::get('/ssd', [PasienController::class, 'ssd'])
      ->name('pasien.ssd');
 
+Route::get('/daftar-pelaporan', [PasienController::class, 'listPelaporan'])
+     ->name('humas.daftar-pelaporan');
+
+Route::prefix('humas')->name('humas.')->group(function () {
+    Route::get('/daftar-pelaporan', [HumasController::class, 'daftarPelaporan'])->name('daftarPelaporan');
+    Route::get('/data-referensi', [HumasController::class, 'dataReferensi'])->name('dataReferensi');
+    Route::get('/direksi', [HumasController::class, 'direksi'])->name('direksi');
+    Route::get('/unit-kerja', [HumasController::class, 'unitKerja'])->name('unitKerja');
+});
+
+Route::get('/internal-api/get-humas-navbar', function () {
+    // Ensure this view path is correct and does not contain layout sections
+    // if it's meant to be a partial.
+    return view('Humas.navbarHumas')->render();
+})->name('internal.humasNavbar');
