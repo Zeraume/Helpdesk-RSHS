@@ -11,9 +11,9 @@
 
 <body>
     {{-- Navbar --}}
-    <div id="navbar-humas-placeholder"></div>
+    <div id="navbar-humas"></div>
 
-    <div class="container my-5 pt-2">
+    <div class="container rounded container-tabel my-5 pt-2">
         <!-- Header Box -->
         <div class="p-4 rounded-top" style="background-color: #00B9AD; color: white;">
             <h5 class="mb-1">Manajemen Data Direksi RSHS Bandung</h5>
@@ -233,7 +233,7 @@
                     return response.text();
                 })
                 .then((data) => {
-                    const navbarPlaceholder = document.getElementById("navbar-humas-placeholder");
+                    const navbarPlaceholder = document.getElementById("navbar-humas");
                     if (navbarPlaceholder) {
                         navbarPlaceholder.innerHTML = data;
                     } else {

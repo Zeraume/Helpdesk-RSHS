@@ -71,23 +71,16 @@
 <!-- Script untuk mendeteksi halaman aktif -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Dapatkan nama file halaman saat ini
         const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
-        // Fungsi untuk menetapkan link aktif berdasarkan halaman saat ini
         function setActiveNavItem() {
-            // Seleksi semua link navigasi
             const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
 
             navLinks.forEach(link => {
-                // Hapus class active dari semua link
                 link.classList.remove("active");
 
-                // Ambil href dari link
                 const href = link.getAttribute("href");
 
-                // Jika href sama dengan halaman saat ini, atau jika link mengarah ke daftar pelaporan
-                // dan ini adalah halaman beranda/index
                 if (href === currentPage ||
                     (link.textContent.trim() === "Daftar Pelaporan" &&
                         (currentPage === "index.html" || currentPage === ""))) {
@@ -96,7 +89,6 @@
             });
         }
 
-        // Jalankan fungsi saat halaman dimuat
         setActiveNavItem();
     });
 </script>

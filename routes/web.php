@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\HumasController;
 use App\Http\Controllers\UnitKerjaController;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', fn() => redirect()->route('humas.daftarPelaporan'));
 
@@ -37,3 +38,5 @@ Route::prefix('unit-kerja')->name('unit-kerja.')->group(function () {
     Route::get('/dashboard-unit-kerja', [UnitKerjaController::class, 'berandaUnitKerja'])->name('berandaUnitKerja');
     Route::get('/navbar-content', [UnitKerjaController::class, 'navbar'])->name('navbarContent');
 });
+
+Route::get('/admin/dashboard', [AdminController::class, 'berandaAdmin'])->name('admin.dashboard');

@@ -12,9 +12,9 @@
 
 <body>
     {{-- Navbar --}}
-    <div id="navbar-humas-placeholder"></div>
+    <div id="navbar-humas"></div>
 
-    <div class="container my-5 pt-2">
+    <div class="container container-tabel rounded my-5 pt-2">
         <!-- Header Box -->
         <div class="p-4 rounded-top" style="background-color: #00B9AD; color: white;">
             <h5 class="mb-1">Manajemen Unit Kerja RSHS Bandung</h5>
@@ -263,7 +263,7 @@
         </div>
     </div>
 
-    <div class="container my-5 pt-2">
+    <div class="container container-tabel rounded my-5 pt-2">
         <!-- Header Box -->
         <div class="p-4 rounded-top" style="background-color: #00B9AD; color: white;">
             <h5 class="mb-1">Manajemen Admin Unit Kerja RSHS Bandung</h5>
@@ -585,7 +585,7 @@
                     return response.text();
                 })
                 .then((data) => {
-                    const navbarPlaceholder = document.getElementById("navbar-humas-placeholder");
+                    const navbarPlaceholder = document.getElementById("navbar-humas");
                     if (navbarPlaceholder) {
                         navbarPlaceholder.innerHTML = data;
                     } else {
