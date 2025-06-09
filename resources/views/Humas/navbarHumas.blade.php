@@ -4,7 +4,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-lg">
         <!-- Logo -->
-        <a class="navbar-brand" href="daftarPelaporan.html">
+        <a class="navbar-brand" href="{{ route('humas.daftarPelaporan') }}">
             <img src="{{ asset('assets/images/logoRSHS.png') }}" alt="Logo" height="40" />
         </a>
 

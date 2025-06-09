@@ -11,7 +11,7 @@
 
 <body>
     {{-- Navbar --}}
-    <div id="navbar-humas"></div>
+    <div class="sticky-top" id="navbar-humas"></div>
 
     <div class="container rounded container-tabel my-5 pt-2">
         <!-- Header Box -->
