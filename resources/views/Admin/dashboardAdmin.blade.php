@@ -13,38 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
     <style>
-        .chart-section {
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
 
-        .chart-section h2 {
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-
-        .chart-section p {
-            font-size: 13px;
-            margin-top: 0;
-            color: #555;
-        }
-
-        .bootstrap-select.select-panjang {
-            width: 300px !important;
-        }
-
-        .bootstrap-select.select-panjang>.dropdown-toggle {
-            width: 100% !important;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        #gradingChart {
-            max-height: 50vh;
-        }
     </style>
 </head>
 
@@ -53,7 +22,7 @@
     <!-- Navbar -->
     @include('Admin.navbarAdmin')
 
-    <div class="container container-tabel rounded my-5 pt-2">
+    <div class="container container-tabel rounded my-5 pt-2 px-3">
         <!-- Header Box -->
         <div class="p-4 rounded-top" style="background-color: #00B9AD; color: white;">
             <h5 class="mb-1">Dashboard Admin RSHS Bandung</h5>
