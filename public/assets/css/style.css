@@ -411,3 +411,37 @@ tr.editing-row .editable-input:focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 185, 173, 0.25) !important;
 }
+
+/* Style Role Admin */
+.chart-section {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.chart-section h2 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.chart-section p {
+    font-size: 13px;
+    margin-top: 0;
+    color: #555;
+}
+
+.bootstrap-select.select-panjang {
+    width: 300px !important;
+}
+
+.bootstrap-select.select-panjang>.dropdown-toggle {
+    width: 100% !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#gradingChart {
+    max-height: 50vh;
+}
