@@ -269,6 +269,21 @@
                 `;
             }
         }
+
+        // Menangani klik pada tombol rating
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('rating-btn')) {
+                const clickedButton = event.target;
+                const ratingContainer = clickedButton.closest('#ratingContainer');
+                if (!ratingContainer) return;
+
+                const allButtons = ratingContainer.querySelectorAll('.rating-btn');
+
+                allButtons.forEach(btn => btn.classList.remove('active'));
+
+                clickedButton.classList.add('active');
+            }
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>

@@ -14,7 +14,7 @@
     background-color: white;
     border-radius: 10px;
     padding: 30px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     max-width: 1300px;
 }
 
@@ -206,6 +206,19 @@
     background-color: #60C0D0;
     color: white;
     border-color: #60C0D0;
+}
+
+/* Style untuk tombol rating yang sedang AKTIF/DIPILIH */
+.rating-btn-active {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #ffffff;
+}
+
+/* Menjaga tampilan tombol aktif saat kursor diarahkan */
+.rating-btn-active:hover {
+    background-color: #0d6efd;
+    color: #ffffff;
 }
 
 

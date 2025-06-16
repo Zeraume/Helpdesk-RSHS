@@ -6,7 +6,7 @@ use App\Http\Controllers\HumasController;
 use App\Http\Controllers\UnitKerjaController;
 use App\Http\Controllers\AdminController;
 
-Route::get('/', fn() => redirect()->route('humas.daftarPelaporan'));
+Route::get('/', fn() => redirect()->route('pasien.dashboard'));
 
 Route::get('/dashboard-pasien', [PasienController::class, 'dashboard'])
      ->name('pasien.dashboard');
