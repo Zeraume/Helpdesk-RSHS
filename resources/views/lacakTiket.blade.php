@@ -146,8 +146,8 @@
                                     <p>Mohon berikan feedback anda untuk membantu kami meningkatkan layanan.</p>
 
                                     <div class="mb-3">
-                                    <label class="form-label fw-bold">Penilaian (1-5)</label>
-                                    <div class="d-flex gap-2">
+                                    <label class="form-label fw-bold text-center d-block">Penilaian (1-5)</label>
+                                    <div class="d-flex gap-2 justify-content-center">
                                         <div id="ratingContainer">
                                             <button class="rating-btn">1</button>
                                             <button class="rating-btn">2</button>
